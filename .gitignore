@@ -1,0 +1,26 @@
+# Environment variables - DO NOT COMMIT!
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment folders (add yours if different)
+venv/
+env/
+.venv/
+
+# IDE specific folders (examples)
+.idea/
+.vscode/
+
+# Operating System generated files
+.DS_Store
+Thumbs.db
+
+# Microsoft Office temporary files
+~$*.xlsx
+~$*.docx
+~$*.pptx
