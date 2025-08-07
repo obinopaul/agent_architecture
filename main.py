@@ -29,7 +29,9 @@ SAMPLE_QUERIES = {
     "router": "Create a personal financial planning guide for recent college graduates.",
     "aggregator": "Analyze the future of work considering automation, remote work trends, and changing skill requirements.",
     "network": "Explain how blockchain technology might be applied to improve supply chain transparency and security.",
-    "hierarchical": "Develop a comprehensive strategy for a city to reduce its carbon footprint over the next decade."
+    "hierarchical": "Develop a comprehensive strategy for a city to reduce its carbon footprint over the next decade.",
+    "isolated_environment": "Create a Python script that analyzes a dataset, generates visualizations, and saves the results to files in a secure sandbox environment.",
+    "filesystem_planner": "Plan and implement a complete web scraping project with proper directory structure, documentation, and step-by-step execution tracking."
 }
 
 async def run_all_examples():
@@ -139,3 +141,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
