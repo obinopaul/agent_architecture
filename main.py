@@ -126,7 +126,8 @@ def main():
     """Main function to parse arguments and run examples."""
     parser = argparse.ArgumentParser(description="Demonstrate multi-agent architectures")
     parser.add_argument("--architecture", "-a", type=str, choices=[
-        "parallel", "sequential", "loop", "router", "aggregator", "network", "hierarchical", "all"
+        "parallel", "sequential", "loop", "router", "aggregator", "network", "hierarchical", 
+        "isolated_environment", "filesystem_planner", "all"
     ], default="all", help="Which architecture to run (default: all)")
     parser.add_argument("--query", "-q", type=str, help="Custom query to run (if not provided, a sample query is used)")
     
@@ -153,5 +154,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
