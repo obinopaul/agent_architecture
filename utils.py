@@ -29,6 +29,24 @@ def get_common_tools():
     
     return [wikipedia_tool, youtube_tool, web_search_tool]
 
+def get_code_execution_tools():
+    """Get a list of tools for isolated code execution with Daytona."""
+    try:
+        from daytona_tools import get_daytona_tools
+        return get_daytona_tools()
+    except ImportError:
+        print("Warning: daytona_tools module not found. Code execution tools unavailable.")
+        return []
+
+def get_filesystem_tools():
+    """Get a list of tools for filesystem operations and planning."""
+    try:
+        from filesystem_planner_agent import get_filesystem_tools as get_fs_tools
+        return get_fs_tools()
+    except ImportError:
+        print("Warning: filesystem_planner_agent module not found. Filesystem tools unavailable.")
+        return []
+
 # Base agent state (used in most architectures)
 class AgentState(TypedDict):
     """Base state that includes conversation messages."""
@@ -140,3 +158,4 @@ def create_agent_prompt(system_message: str) -> ChatPromptTemplate:
         ),
         MessagesPlaceholder(variable_name="chat_history", optional=True),
     ])
+
