@@ -18,6 +18,8 @@ from router_agents import create_router_agent_workflow, run_router_example
 from aggregator_agents import create_aggregator_agent_workflow, run_aggregator_example
 from network_agents import create_network_agent_workflow, run_network_example
 from hierarchical_agents import create_hierarchical_agent_workflow, run_hierarchical_example
+from isolated_environment_agent import create_isolated_environment_workflow, run_isolated_environment_example
+from filesystem_planner_agent import create_filesystem_planner_workflow, run_filesystem_planner_example
 
 # Sample queries for each architecture
 SAMPLE_QUERIES = {
