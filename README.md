@@ -179,9 +179,12 @@ python main.py --architecture filesystem_planner --query "Set up a data science 
 
 ## File Structure
 
+### Core Files
+- `utils.py` - Shared utilities, base classes, and system prompts
+- `main.py` - Main script to run all architecture examples
+- `requirements.txt` - Python dependencies for all architectures
+
 ### Basic Architectures
-- `utils.py` - Shared utilities and base classes
-- `aggregator_agents.py` - Aggregator Agents
 - `parallel_agents.py` - Parallel architecture implementation
   - `parallel_agents_main.py` - Parallel Architecture Implementation 2
 - `sequential_agents.py` - Sequential architecture implementation
@@ -193,9 +196,41 @@ python main.py --architecture filesystem_planner --query "Set up a data science 
 - `hierarchical_agents.py` - Hierarchical architecture implementation
 - `react_agent_as_a_tool.py` - Agent as a Tool
 - `human_in_the_loop.py` - Human in the Loop
-- `main.py` - Main script to run basic architecture examples
+
+### Advanced Architectures
+- `isolated_environment_agent.py` - Isolated Environment Agent with Daytona integration
+- `daytona_tools.py` - Custom tools for Daytona sandbox operations
+- `filesystem_planner_agent.py` - Filesystem Planner Agent with todo.md management
+
+#### Advanced Architecture Details
+
+**Isolated Environment Agent (`isolated_environment_agent.py`)**
+- Secure code execution using Daytona sandboxes
+- Custom workflow with sandbox initialization, code execution, and cleanup
+- Integration with `daytona_tools.py` for comprehensive sandbox management
+
+**Daytona Tools (`daytona_tools.py`)**
+- `DaytonaSandboxManager` - Core sandbox management class
+- `CreateSandboxTool` - Create new isolated sandboxes
+- `DestroySandboxTool` - Clean up sandbox resources
+- `ExecuteCommandTool` - Run shell commands in sandboxes
+- `CodeExecutionTool` - Execute Python code safely
+- `FileUploadTool` / `FileDownloadTool` - File management within sandboxes
+- `ListSandboxesTool` - Monitor available sandboxes
+- `GitCloneTool` - Clone repositories into sandboxes
+
+**Filesystem Planner Agent (`filesystem_planner_agent.py`)**
+- Structured planning with todo.md file management
+- Dual operation modes: filesystem and state-based
+- Custom workflow with workspace initialization, plan creation, task execution, and finalization
+
+**Filesystem Tools**
+- `FileSystemTool` - Basic filesystem operations (create_dir, read_file, write_file, etc.)
+- `TodoManagerTool` - Todo.md creation, updating, and task management
+- `PlanUpdateTool` - Plan refinement and reorganization capabilities
 
 # agent_architecture
+
 
 
 
