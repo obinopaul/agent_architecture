@@ -89,7 +89,29 @@ Create a `.env` file with your API keys:
 
 ```
 OPENAI_API_KEY=your_openai_api_key
+TAVILY_API_KEY=your_tavily_api_key
 ```
+
+For the Isolated Environment Agent, you'll also need to set up Daytona:
+
+1. Install Daytona CLI:
+   ```bash
+   # macOS/Linux
+   brew install daytonaio/cli/daytona
+   
+   # Windows
+   # Download from https://github.com/daytonaio/daytona/releases
+   ```
+
+2. Authenticate with Daytona:
+   ```bash
+   daytona login
+   ```
+
+3. (Optional) Initialize Daytona MCP server for enhanced AI integration:
+   ```bash
+   daytona mcp init
+   ```
 
 ### Running Examples
 
@@ -130,5 +152,6 @@ python main.py --architecture router --query "What are the best practices for mi
 - `main.py` - Main script to run basic architecture examples
 
 # agent_architecture
+
 
 
