@@ -80,6 +80,18 @@ async def run_all_examples():
     results["hierarchical"] = hierarchical_result["final_response"]
     print("✓ Hierarchical architecture completed")
     
+    # Isolated Environment architecture
+    print("\n=== Running Isolated Environment Architecture ===")
+    isolated_env_result = run_isolated_environment_example(SAMPLE_QUERIES["isolated_environment"])
+    results["isolated_environment"] = isolated_env_result["final_response"]
+    print("✓ Isolated Environment architecture completed")
+    
+    # Filesystem Planner architecture
+    print("\n=== Running Filesystem Planner Architecture ===")
+    filesystem_planner_result = run_filesystem_planner_example(SAMPLE_QUERIES["filesystem_planner"])
+    results["filesystem_planner"] = filesystem_planner_result["final_response"]
+    print("✓ Filesystem Planner architecture completed")
+    
     return results
 
 def run_specific_architecture(architecture: str, query: str):
@@ -141,4 +153,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
