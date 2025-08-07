@@ -119,6 +119,12 @@ def run_specific_architecture(architecture: str, query: str):
     elif architecture == "hierarchical":
         result = run_hierarchical_example(query)
         return result["final_response"]
+    elif architecture == "isolated_environment":
+        result = run_isolated_environment_example(query)
+        return result["final_response"]
+    elif architecture == "filesystem_planner":
+        result = run_filesystem_planner_example(query)
+        return result["final_response"]
     else:
         return f"Unknown architecture: {architecture}"
 
@@ -154,6 +160,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
