@@ -115,22 +115,66 @@ For the Isolated Environment Agent, you'll also need to set up Daytona:
 
 ### Running Examples
 
-To run all basic architectures with sample queries:
+To run all architectures (including advanced ones) with sample queries:
 
 ```bash
 python main.py
 ```
 
-To run a specific architecture:
+To run a specific basic architecture:
 
 ```bash
 python main.py --architecture parallel
 ```
 
-With a custom query:
+To run the advanced architectures:
 
 ```bash
+# Isolated Environment Agent
+python main.py --architecture isolated_environment
+
+# Filesystem Planner Agent
+python main.py --architecture filesystem_planner
+```
+
+With custom queries:
+
+```bash
+# Basic architecture example
 python main.py --architecture router --query "What are the best practices for microservice architecture?"
+
+# Advanced architecture examples
+python main.py --architecture isolated_environment --query "Create a data analysis script that processes CSV files and generates plots"
+
+python main.py --architecture filesystem_planner --query "Plan and build a REST API with authentication and database integration"
+```
+
+### Advanced Architecture Usage
+
+#### Isolated Environment Agent Examples
+
+```bash
+# Secure code execution
+python main.py --architecture isolated_environment --query "Execute this Python code safely: import pandas as pd; df = pd.read_csv('data.csv'); print(df.head())"
+
+# Data analysis with visualization
+python main.py --architecture isolated_environment --query "Create a machine learning model to predict house prices and save the results"
+
+# Git repository analysis
+python main.py --architecture isolated_environment --query "Clone a Python repository and run its test suite in isolation"
+```
+
+#### Filesystem Planner Agent Examples
+
+```bash
+# Project planning and execution
+python main.py --architecture filesystem_planner --query "Create a complete web scraping project with documentation and testing"
+
+# Development workflow
+python main.py --architecture filesystem_planner --query "Plan and implement a microservice with Docker containerization"
+
+# Educational project structure
+python main.py --architecture filesystem_planner --query "Set up a data science project with proper directory structure and documentation"
 ```
 
 ## File Structure
@@ -152,6 +196,7 @@ python main.py --architecture router --query "What are the best practices for mi
 - `main.py` - Main script to run basic architecture examples
 
 # agent_architecture
+
 
 
 
