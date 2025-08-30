@@ -18,6 +18,8 @@ from router_agents import create_router_agent_workflow, run_router_example
 from aggregator_agents import create_aggregator_agent_workflow, run_aggregator_example
 from network_agents import create_network_agent_workflow, run_network_example
 from hierarchical_agents import create_hierarchical_agent_workflow, run_hierarchical_example
+from isolated_environment_agent import create_isolated_environment_workflow, run_isolated_environment_example
+from filesystem_planner_agent import create_filesystem_planner_workflow, run_filesystem_planner_example
 
 # Sample queries for each architecture
 SAMPLE_QUERIES = {
@@ -27,7 +29,9 @@ SAMPLE_QUERIES = {
     "router": "Create a personal financial planning guide for recent college graduates.",
     "aggregator": "Analyze the future of work considering automation, remote work trends, and changing skill requirements.",
     "network": "Explain how blockchain technology might be applied to improve supply chain transparency and security.",
-    "hierarchical": "Develop a comprehensive strategy for a city to reduce its carbon footprint over the next decade."
+    "hierarchical": "Develop a comprehensive strategy for a city to reduce its carbon footprint over the next decade.",
+    "isolated_environment": "Create a Python script that analyzes a dataset, generates visualizations, and saves the results to files in a secure sandbox environment.",
+    "filesystem_planner": "Plan and implement a complete web scraping project with proper directory structure, documentation, and step-by-step execution tracking."
 }
 
 async def run_all_examples():
@@ -76,6 +80,18 @@ async def run_all_examples():
     results["hierarchical"] = hierarchical_result["final_response"]
     print("✓ Hierarchical architecture completed")
     
+    # Isolated Environment architecture
+    print("\n=== Running Isolated Environment Architecture ===")
+    isolated_env_result = run_isolated_environment_example(SAMPLE_QUERIES["isolated_environment"])
+    results["isolated_environment"] = isolated_env_result["final_response"]
+    print("✓ Isolated Environment architecture completed")
+    
+    # Filesystem Planner architecture
+    print("\n=== Running Filesystem Planner Architecture ===")
+    filesystem_planner_result = run_filesystem_planner_example(SAMPLE_QUERIES["filesystem_planner"])
+    results["filesystem_planner"] = filesystem_planner_result["final_response"]
+    print("✓ Filesystem Planner architecture completed")
+    
     return results
 
 def run_specific_architecture(architecture: str, query: str):
@@ -103,6 +119,12 @@ def run_specific_architecture(architecture: str, query: str):
     elif architecture == "hierarchical":
         result = run_hierarchical_example(query)
         return result["final_response"]
+    elif architecture == "isolated_environment":
+        result = run_isolated_environment_example(query)
+        return result["final_response"]
+    elif architecture == "filesystem_planner":
+        result = run_filesystem_planner_example(query)
+        return result["final_response"]
     else:
         return f"Unknown architecture: {architecture}"
 
@@ -110,7 +132,8 @@ def main():
     """Main function to parse arguments and run examples."""
     parser = argparse.ArgumentParser(description="Demonstrate multi-agent architectures")
     parser.add_argument("--architecture", "-a", type=str, choices=[
-        "parallel", "sequential", "loop", "router", "aggregator", "network", "hierarchical", "all"
+        "parallel", "sequential", "loop", "router", "aggregator", "network", "hierarchical", 
+        "isolated_environment", "filesystem_planner", "all"
     ], default="all", help="Which architecture to run (default: all)")
     parser.add_argument("--query", "-q", type=str, help="Custom query to run (if not provided, a sample query is used)")
     
@@ -137,3 +160,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
